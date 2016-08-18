@@ -1,6 +1,7 @@
 project(gmetricl)
 cmake_minimum_required(VERSION 2.8.12)
 find_package(Threads REQUIRED)
+find_package(EXPAT REQUIRED)
 
 set(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
 
@@ -17,21 +18,20 @@ set(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
 #    -Wl,-Bdynamic -lresolv -ldl -lnsl -lrt -lcrypt -lpthread -pthread 
 
 
-set(APR_PATH "/usr/include/apr-1.0" CACHE STRING "location of libapr-1 include files")
-include_directories("${APR_PATH}")
+set(APR1_INCLUDE_DIRS "/usr/include/apr-1.0" CACHE STRING "location of libapr-1 include files")
+include_directories("${APR1_INCLUDE_DIRS}")
 
 if(CMAKE_C_COMPILER_ID MATCHES GNU)
-  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99 -pthread -fno-strict-aliasing -B static")
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99 -pthread -fno-strict-aliasing -B static -m64")
 endif()
 
-find_library(LIBGANGLIA ganglia)
-find_library(LIBCONFUSE confuse)
-find_library(LIBEXPAT expat)
-find_library(LIBPCRE pcre)
-find_library(LIBAPR1 apr-1)
-find_library(LIBNSL nsl)
-find_library(LIBRT rt)
-find_library(LIBCRYPT crypt)
+find_library(GANGLIA_LIBRARIES ganglia)
+find_library(CONFUSE_LIBRARIES confuse)
+find_library(PCRE_LIBRARIES pcre)
+find_library(APR1_LIBRARIES apr-1)
+find_library(NSL_LIBRARIES nsl)
+find_library(RT_LIBRARIES rt)
+find_library(CRYPT_LIBRARIES crypt)
 
 add_definitions(-D_LARGEFILE64_SOURCE)
 add_definitions(-D_REENTRANT)
@@ -39,9 +39,9 @@ add_definitions(-D_GNU_SOURCE)
 add_definitions(-DPATH_MAX=4096)
    
 add_executable(gmetricl csv.c ganglia.c gmetricl.c net.c)
-set_target_properties(gmetricl PROPERTIES LINK_SEARCH_START_STATIC 1)
-set_target_properties(gmetricl PROPERTIES LINK_SEARCH_END_STATIC 1)
-target_link_libraries(gmetricl dl ${LIBGANGLIA} ${LIBCONFUSE} ${LIBEXPAT} ${LIBPCRE} ${LIBAPR1} ${LIBRT} ${LIBCYRPT} ${LIBPTHREAD} "${CMAKE_THREAD_LIBS_INIT}")
+#set_target_properties(gmetricl PROPERTIES LINK_SEARCH_START_STATIC 1)
+#set_target_properties(gmetricl PROPERTIES LINK_SEARCH_END_STATIC 1)
+target_link_libraries(gmetricl dl ${GANGLIA_LIBRARIES} ${CONFUSE_LIBRARIES} ${EXPAT_LIBRARIES} ${PCRE_LIBRARIES} ${APR1_LIBRARIES} ${RT_LIBRARIES} ${CYRPT_LIBRARIES} "${CMAKE_THREAD_LIBS_INIT}")
 
 install(TARGETS gmetricl 
   RUNTIME DESTINATION bin
