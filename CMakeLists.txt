@@ -32,7 +32,6 @@ find_library(LIBAPR1 apr-1)
 find_library(LIBNSL nsl)
 find_library(LIBRT rt)
 find_library(LIBCRYPT crypt)
-find_library(LIBPTHREAD pthread)
 
 add_definitions(-D_LARGEFILE64_SOURCE)
 add_definitions(-D_REENTRANT)
