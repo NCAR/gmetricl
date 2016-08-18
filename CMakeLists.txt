@@ -23,6 +23,16 @@ if(CMAKE_C_COMPILER_ID MATCHES GNU)
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99 -pthread -fno-strict-aliasing -B static")
 endif()
 
+find_library(LIBGANGLIA ganglia)
+find_library(LIBCONFUSE confuse)
+find_library(LIBEXPAT expat)
+find_library(LIBPCRE pcre)
+find_library(LIBAPR1 apr-1)
+find_library(LIBNSL nsl)
+find_library(LIBRT rt)
+find_library(LIBCRYPT crypt)
+find_library(LIBPTHREAD pthread)
+
 add_definitions(-D_LARGEFILE64_SOURCE)
 add_definitions(-D_REENTRANT)
 add_definitions(-D_GNU_SOURCE)
@@ -31,7 +41,7 @@ add_definitions(-DPATH_MAX=4096)
 add_executable(gmetricl csv.c ganglia.c gmetricl.c net.c)
 set_target_properties(gmetricl PROPERTIES LINK_SEARCH_START_STATIC 1)
 set_target_properties(gmetricl PROPERTIES LINK_SEARCH_END_STATIC 1)
-target_link_libraries(gmetricl ganglia confuse expat pcre apr-1 dl nsl rt crypt pthread)
+target_link_libraries(gmetricl dl ${LIBGANGLIA} ${LIBCONFUSE} ${LIBEXPAT} ${LIBPCRE} ${LIBAPR1} ${LIBRT} ${LIBCYRPT} ${LIBPTHREAD})
 
 install(TARGETS gmetricl 
   RUNTIME DESTINATION bin
