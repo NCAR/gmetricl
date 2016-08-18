@@ -31,8 +31,8 @@ To Build:
 
 4. Call gmetricl to get help
 
-  *  Default install location: /usr/local/bin/gmetricl
-```
+  Default install location: /usr/local/bin/gmetricl
+  ```
   $ /usr/local/bin/gmetricl
   ./gmetricl [-r] [-d 1-10] {-c config_file} [-i input_file [rfc4180 without new lines]]
   -r                              Resolve Host Canon Name. This allow short hand names to be used in input file while full name is given to Ganglia
@@ -57,7 +57,7 @@ To Build:
                           No New lines (in Quotes): New lines make no sense in this context and will result in an error.
                           Optional Fields can be empty but must still have field seperator ',' to ensure data is ordered correctly.
                           Comments: Comments will be ignored when line starts with '#' character.
-```
+   ```
 
 5. Example CSV File:
 
