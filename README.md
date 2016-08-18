@@ -3,6 +3,7 @@ Ganglia gmetric implementation for long lists of metrics using CSV files
 
 To Build:
 1. Install Ganglia-core
+
   * option 1: Install from source [https://github.com/ganglia/monitor-core]
   * option 2: Ubuntu Install:  sudo apt-get install libganglia1-dev libapr1-dev libaprutil1-dev libconfuse-dev libpcre3-dev
   * option 3: Other Distro: install all of Ganglia's dependencies
@@ -11,9 +12,13 @@ To Build:
     *  aprutil1: [git://git.apache.org/apr-util.git]
     *  libconfuse: [https://github.com/martinh/libconfuse]
     *  libpcre: [http://www.pcre.org/]
+
 2. Configure Ganglia
+
   It doesn't matter how you configure Ganglia to use gmetricl. You only need a local instance of gmond running on the host you execute gmetricl on.
+
 3. Build gmetricl
+
 ```
   git clone [https://github.com/NCAR/gmetricl.git] gmetricl
   mkdir gmetricl/build/
@@ -22,7 +27,9 @@ To Build:
   make
   make install
 ```
+
 4. Call gmetricl to get help
+
   Default install location: /usr/local/bin/gmetricl
 ```
   $ /usr/local/bin/gmetricl
@@ -50,7 +57,9 @@ To Build:
                           Optional Fields can be empty but must still have field seperator ',' to ensure data is ordered correctly.
                           Comments: Comments will be ignored when line starts with '#' character.
 ```
+
 5. Example CSV File:
+
 ```
 	#host, ip, group, description, title, name, value, type, units, slope, tmax, dmax
 	node0,,test group, test description, test title, test metric, 1.2, float, test units,,,
