@@ -20,14 +20,14 @@ To Build:
 
 3. Build gmetricl
 
-```
+  ```
   git clone [https://github.com/NCAR/gmetricl.git] gmetricl
   mkdir gmetricl/build/
   cd gmetricl/build/
   cmake .
   make
   make install
-```
+  ```
 
 4. Call gmetricl to get help
 
@@ -57,15 +57,15 @@ To Build:
                           No New lines (in Quotes): New lines make no sense in this context and will result in an error.
                           Optional Fields can be empty but must still have field seperator ',' to ensure data is ordered correctly.
                           Comments: Comments will be ignored when line starts with '#' character.
-   ```
+  ```
 
 5. Example CSV File:
 
-```
+  ```csv
 	#host, ip, group, description, title, name, value, type, units, slope, tmax, dmax
 	node0,,test group, test description, test title, test metric, 1.2, float, test units,,,
 	node1,,test group, test description, test title 2, test metric, 4.2, float, test units,,,
 	node2,,test group, test description, test title 3, test metric 3, 0.2, float, test units,,,
-```
+  ```
 
 
