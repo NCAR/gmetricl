@@ -28,9 +28,10 @@ To Build:
   make
   make install
 ```
+
 4. Call gmetricl to get help
 
-  Default install location: /usr/local/bin/gmetricl
+  *  Default install location: /usr/local/bin/gmetricl
 ```
   $ /usr/local/bin/gmetricl
   ./gmetricl [-r] [-d 1-10] {-c config_file} [-i input_file [rfc4180 without new lines]]
