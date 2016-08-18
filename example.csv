@@ -1,0 +1,5 @@
+#host, ip, group, description, title, name, value, type, units, slope, tmax, dmax
+,,test group, test description, test title, test metric, 1.2, float, test units,,,
+ff0103ge,,test group, test description, test title 2, test metric, 4.2, float, test units,,,
+ff0102ge,,test group, test description, test title 3, test metric 3, 0.2, float, test units,,,
+
