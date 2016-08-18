@@ -1,5 +1,6 @@
 project(gmetricl)
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 2.8.12)
+find_package(Threads REQUIRED)
 
 set(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
 
@@ -41,7 +42,7 @@ add_definitions(-DPATH_MAX=4096)
 add_executable(gmetricl csv.c ganglia.c gmetricl.c net.c)
 set_target_properties(gmetricl PROPERTIES LINK_SEARCH_START_STATIC 1)
 set_target_properties(gmetricl PROPERTIES LINK_SEARCH_END_STATIC 1)
-target_link_libraries(gmetricl dl ${LIBGANGLIA} ${LIBCONFUSE} ${LIBEXPAT} ${LIBPCRE} ${LIBAPR1} ${LIBRT} ${LIBCYRPT} ${LIBPTHREAD})
+target_link_libraries(gmetricl dl ${LIBGANGLIA} ${LIBCONFUSE} ${LIBEXPAT} ${LIBPCRE} ${LIBAPR1} ${LIBRT} ${LIBCYRPT} ${LIBPTHREAD} "${CMAKE_THREAD_LIBS_INIT}")
 
 install(TARGETS gmetricl 
   RUNTIME DESTINATION bin
