@@ -14,9 +14,11 @@ To Build:
     *  libpcre: [http://www.pcre.org/]
 
 2. Configure Ganglia
+
   It doesn't matter how you configure Ganglia to use gmetricl. You only need a local instance of gmond running on the host you execute gmetricl on.
 
 3. Build gmetricl
+
 ```
   git clone [https://github.com/NCAR/gmetricl.git] gmetricl
   mkdir gmetricl/build/
@@ -27,6 +29,7 @@ To Build:
 ```
 
 4. Call gmetricl to get help
+
   Default install location: /usr/local/bin/gmetricl
 ```
   $ /usr/local/bin/gmetricl
@@ -56,6 +59,7 @@ To Build:
 ```
 
 5. Example CSV File:
+
 ```
 	#host, ip, group, description, title, name, value, type, units, slope, tmax, dmax
 	node0,,test group, test description, test title, test metric, 1.2, float, test units,,,
