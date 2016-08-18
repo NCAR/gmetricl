@@ -16,7 +16,7 @@ To Build:
 
 2. Configure Ganglia
 
-  It doesn't matter how you configure Ganglia to use gmetricl. You only need a local instance of gmond running on the host you execute gmetricl on.
+  It doesn't matter how you configure Ganglia to use gmetricl. You only need a local instance of gmond running on the host you execute gmetricl on for it to work.
 
 3. Build gmetricl
 
@@ -28,7 +28,6 @@ To Build:
   make
   make install
 ```
-
 4. Call gmetricl to get help
 
   Default install location: /usr/local/bin/gmetricl
