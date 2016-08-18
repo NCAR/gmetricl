@@ -4,14 +4,14 @@ Ganglia gmetric implementation for long lists of metrics using CSV files
 
 To Build:
 1. Install Ganglia-core
-...option 1: Install from source (https://github.com/ganglia/monitor-core)
-...option 2: Ubuntu Install:  sudo apt-get install libganglia1-dev libapr1-dev libaprutil1-dev libconfuse-dev libpcre3-dev
-...option 3: Other Distro: install 
-......ganglia-core: https://github.com/ganglia/monitor-core
-......apr1: https://apr.apache.org/download.cgi
-......aprutil1: git://git.apache.org/apr-util.git
-......libconfuse: https://github.com/martinh/libconfuse
-......libpcre: http://www.pcre.org/
+ option 1: Install from source (https://github.com/ganglia/monitor-core)
+ option 2: Ubuntu Install:  sudo apt-get install libganglia1-dev libapr1-dev libaprutil1-dev libconfuse-dev libpcre3-dev
+ option 3: Other Distro: install 
+  ganglia-core: https://github.com/ganglia/monitor-core
+  apr1: https://apr.apache.org/download.cgi
+  aprutil1: git://git.apache.org/apr-util.git
+  libconfuse: https://github.com/martinh/libconfuse
+  libpcre: http://www.pcre.org/
 2. Configure Ganglia
   It doesn't matter how you configure Ganglia to use gmetricl. You only need a local instance of gmond running on the host you execute gmetricl on.
 3. Build gmetricl
